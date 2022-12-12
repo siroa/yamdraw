@@ -7,13 +7,13 @@ import (
 )
 
 func TestCalcSize(t *testing.T) {
-	// mwが0個の場合
+	// If mw is 0
 	s := CreateLayoutServer("1", "server1")
 	s.CalcSize()
 	require.Equal(t, SEVERWIDTH, s.Width)
 	require.Equal(t, SERVERHEIGHT, s.Height)
 
-	// mwが1つの場合
+	// If mw is 1
 	mw := CreateLayoutMw("mw1", "mw1")
 	mwWid1 := 100
 	mwHei1 := 120
@@ -25,7 +25,7 @@ func TestCalcSize(t *testing.T) {
 	want = int(float64(mwHei1) * MWHEIGHTSCALE)
 	require.Equal(t, want, s.Height)
 
-	// mwが2個の場合
+	// If mw is 2
 	mw2 := CreateLayoutMw("mw2", "mw2")
 	mwWid2 := 100
 	mwHei2 := 110

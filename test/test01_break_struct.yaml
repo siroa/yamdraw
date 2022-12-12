@@ -1,22 +1,21 @@
 networks:
-# ネットワークにはkindが設定できる(actor: クライアントとなるもの, main: 対象となるシステム, others: 周辺システム)
   hogehoge:
       nae: WAN
       servers:
         server:
-            name: Webサーバ
+            name: Web server
             aa:
               - mb:
                   name: app
                   id: 111
                   process:
-                    - {id: 1, name: ユーザー登録}
+                    - {id: 1, name: user1}
                   db:
-                    - {id: 2, name: ユーザー登録}
+                    - {id: 2, name: user2}
               - mw:
                   name: ddd
                   process:
-                    - {id: 3, name: ユーザー登録}
+                    - {id: 3, name: user3}
                   db:
-                    - {id: 4, name: ユーザー登録}
+                    - {id: 4, name: user4}
 

@@ -9,7 +9,7 @@ import (
 )
 
 func TestYamlHandler(t *testing.T) {
-	// 正常読み込み
+	// normal mode read
 
 	testFilePath := filepath.Clean(`..\test\test01.yaml`)
 	y, err := NewYamlHandler(testFilePath)
@@ -18,7 +18,7 @@ func TestYamlHandler(t *testing.T) {
 	require.NoError(t, err)
 	require.Equal(t, want, y.File)
 
-	// ファイルが存在しない
+	// File does not exist
 	testFilePath = filepath.Clean(`..\test\hogehoge.yaml`)
 	y, err = NewYamlHandler(testFilePath)
 	require.Error(t, err)

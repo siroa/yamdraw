@@ -1,62 +1,61 @@
 networks:
-# ネットワークにはkindが設定できる(actor: クライアントとなるもの, main: 対象となるシステム, others: 周辺システム)
   - network:
       name: WAN
       kind: main
       servers:
         - server:
-            name: Webサーバ
+            name: Web server
             mws:
               - mw:
                   name: app
                   id: 111
                   process:
-                    - {id: 1, name: ユーザー登録}
+                    - {id: 1, name: user1}
                   db:
-                    - {id: 2, name: ユーザー登録}
+                    - {id: 2, name: user2}
               - mw:
-                  name: Oracle
+                  name: app2
                   process:
-                    - {id: 3, name: ユーザー登録}
+                    - {id: 3, name: user3}
                   db:
-                    - {id: 4, name: ユーザー登録}
+                    - {id: 4, name: user4}
   - network:
       name: WAN2
       kind: main
       servers:
         - server:
-            name: Webサーバ
+            name: Web server
             mws:
               - mw:
                   name: app
                   process:
-                    - {id: 5, name: ユーザー登録}
+                    - {id: 5, name: user5}
                   db:
-                    - {id: 6, name: ユーザー登録}
+                    - {id: 6, name: user6}
               - mw:
-                  name: Oracle
+                  name: app2
                   process:
-                    - {id: 7, name: ユーザー登録}
+                    - {id: 7, name: user7}
                   db:
-                    - {id: 8, name: ユーザー登録}
+                    - {id: 8, name: user8}
   - network:
       kind: actor
       servers:
         - server:
-            name: Webサーバ
+            name: Web server
             mws:
               - mw:
                   name: app
                   process:
-                    - {id: 9, name: ユーザー登録1}
+                    - {id: 9, name: user9}
         - server:
-            name: Webサーバ2
+            name: Web server2
             mws:
               - mw:
-                  name: Oracle
+                  name: app2
                   db:
-                    - {id: 10, name: ユーザー登録4}
-                    - {id: 11, name: ユーザー登録3}
-                    - {id: 12, name: ユーザー登録11}
+                    - {id: 10, name: user10}
+                    - {id: 11, name: user11}
+                    - {id: 12, name: user12}
                     
 

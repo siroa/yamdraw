@@ -12,7 +12,7 @@ import (
 )
 
 func TestYamlRepositoryFile(t *testing.T) {
-	// 正常読み込み
+	// normal mode read
 	fmt.Println(filepath.Abs("./"))
 	testFilePath := filepath.Clean(`..\..\test\test01.yaml`)
 	y, _ := driver.NewYamlHandler(testFilePath)
@@ -26,7 +26,7 @@ func TestYamlRepositoryFile(t *testing.T) {
 	}
 	require.Equal(t, &want, b)
 
-	// 異常読み込み(yamlの想定していない構造)
+	// Abnormal loading (structure not assumed by yaml)
 	testFilePath = filepath.Clean(`..\..\test\test01_break_struct.yaml`)
 	y, err := driver.NewYamlHandler(testFilePath)
 	require.NoError(t, err)

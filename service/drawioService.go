@@ -9,7 +9,7 @@ type DefaultDrawioService struct {
 	Cs *drawio.MxCells
 }
 
-// MxCellsから最初のMxCell2つを生成する
+// Generate the first two MxCells from MxCells
 func (d DefaultDrawioService) NewDrawioService() DefaultDrawioService {
 	cells := drawio.MxCells{}
 	service := DefaultDrawioService{}
@@ -44,7 +44,7 @@ func (d DefaultDrawioService) Build(service DefaultDrawioService, nls []*layout.
 func setServer(p string, mcells *DefaultDrawioService, ls []*layout.LayoutServer) *DefaultDrawioService {
 	for _, v := range ls {
 		var i string
-		mcells, i = mcells.CreateGroup(p, v.PositionX, v.PositionY, v.Width, v.Height) // サーバーのグループ化
+		mcells, i = mcells.CreateGroup(p, v.PositionX, v.PositionY, v.Width, v.Height) // Server Grouping
 		mcells = mcells.CreateServer(v.ID, v.Name, i, v.Width, v.Height)
 		mcells = setMws(i, mcells, v.Mws)
 	}
@@ -54,7 +54,7 @@ func setServer(p string, mcells *DefaultDrawioService, ls []*layout.LayoutServer
 func setMws(i string, mcells *DefaultDrawioService, lms []*layout.LayoutMw) *DefaultDrawioService {
 	for _, lm := range lms {
 		var ip string
-		mcells, ip = mcells.CreateGroup(i, lm.PositionX, lm.PositionY, lm.Width, lm.Height) // MWのグループ化
+		mcells, ip = mcells.CreateGroup(i, lm.PositionX, lm.PositionY, lm.Width, lm.Height) // MW Grouping
 		mcells = mcells.CreateMw(lm.ID, lm.Name, ip, lm.Width, lm.Height)
 		for _, v := range lm.DB {
 			mcells = mcells.CreateDB(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
@@ -103,7 +103,7 @@ func (d *DefaultDrawioService) CreateGroup(parent string, x, y, w, h int) (*Defa
 	return d, i
 }
 
-// 今は使わない
+// I don't use it now.
 func (d *DefaultDrawioService) CreateCommunication(id, name string) *DefaultDrawioService {
 	sourcePoint := drawio.NewPoint().SetPosition("160", "450").SetKind("sourcePoint")
 	targetPoint := drawio.NewPoint().SetPosition("210", "400").SetKind("targetPoint")
@@ -113,7 +113,7 @@ func (d *DefaultDrawioService) CreateCommunication(id, name string) *DefaultDraw
 	return d
 }
 
-// 今は使わない
+// I don't use it now.
 func (d *DefaultDrawioService) CreateReference(id, name string) *DefaultDrawioService {
 	sourcePoint := drawio.NewPoint().SetPosition("70", "710").SetKind("sourcePoint")
 	targetPoint := drawio.NewPoint().SetPosition("140", "600").SetKind("targetPoint")
@@ -123,14 +123,14 @@ func (d *DefaultDrawioService) CreateReference(id, name string) *DefaultDrawioSe
 	return d
 }
 
-// simple通信
+// simple communication
 func (d *DefaultDrawioService) CreateSimpleCommnication(id, name, source, target string, entry, exit int) *DefaultDrawioService {
 	geo := drawio.NewGeometrySimpleArrow()
 	d.Cs = d.Cs.NewCommunication(id, name, source, target, entry, exit, geo)
 	return d
 }
 
-// simple参照
+// simple communication
 func (d *DefaultDrawioService) CreateSimpleReference(id, name, source, target string, entry, exit int) *DefaultDrawioService {
 	geo := drawio.NewGeometrySimpleArrow()
 	d.Cs = d.Cs.NewReference(id, name, source, target, entry, exit, geo)

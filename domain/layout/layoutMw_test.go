@@ -7,12 +7,12 @@ import (
 )
 
 func TestLayoutMwWidth(t *testing.T) {
-	// DBとprocessの数が0
+	// Number of DBs and processes is 0
 	mw := CreateLayoutMw("test01", "testname1")
 	mw.CalcWidth()
 	require.Equal(t, DBWIDTH+MARGIN, mw.Width)
 
-	// dbの数とprocessの数が同数
+	// Equal number of db's and process
 	db := CreateLayoutDB("db1", "dbname1")
 	mw.DB = append(mw.DB, db)
 	pr := CreateLayoutProcess("process1", "processname1")
@@ -20,7 +20,7 @@ func TestLayoutMwWidth(t *testing.T) {
 	mw.CalcWidth()
 	require.Equal(t, PROWIDTH+MARGIN, mw.Width)
 
-	// dbの個数がprocessより多い
+	// Number of db's is more than process.
 	db2 := CreateLayoutDB("db1", "dbname1")
 	mw.DB = append(mw.DB, db2)
 	mw.CalcWidth()
@@ -28,7 +28,7 @@ func TestLayoutMwWidth(t *testing.T) {
 }
 
 func TestLayoutMwHeight(t *testing.T) {
-	// DBとprocessの数が0
+	// Number of DBs and processes is 0
 	mw := CreateLayoutMw("test01", "testname1")
 	mw.CalcHeight()
 	require.Equal(t, int(MWHEIGHTSCALE*float64(DBHEIGHT+20)), mw.Height)

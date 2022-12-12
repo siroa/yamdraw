@@ -27,7 +27,6 @@ func Split(s string, n int, re *regexp.Regexp) []string {
 	beg := 0
 	end := 0
 	for _, match := range matches {
-		// nの回数かつ戻り値の個数がn-1以上だったらブレイク
 		if n > 0 && len(strings) >= n-1 {
 			break
 		}

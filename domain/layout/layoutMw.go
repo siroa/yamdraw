@@ -29,7 +29,7 @@ func CreateLayoutMw(id, name string) *LayoutMw {
 	}
 }
 
-// Mwのwidthを計算してセットする
+// Calculate and set Mw width
 func (d *LayoutMw) CalcWidth() {
 	dbNum := len(d.DB)
 	ProcessNum := len(d.Process)
@@ -42,7 +42,7 @@ func (d *LayoutMw) CalcWidth() {
 	}
 }
 
-// Mwのheightを計算してセットする
+// Calculate and set the height of Mw
 func (d *LayoutMw) CalcHeight() {
 	if len(d.DB) == 0 || len(d.Process) == 0 {
 		d.Height = int(MWHEIGHTSCALE * float64(DBHEIGHT+20))

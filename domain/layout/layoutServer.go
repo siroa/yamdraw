@@ -26,7 +26,7 @@ func CreateLayoutServer(id, name string) *LayoutServer {
 	}
 }
 
-// ToDo: MWが増える分だけ横長になるので、後で大きさを決めるアルゴリズムを考える
+// ToDo: The more MW, the longer it will be horizontally, so we'll come up with an algorithm to determine the size later.
 func (d *LayoutServer) CalcSize() {
 	if len(d.Mws) == 0 {
 		d.Width = SEVERWIDTH
