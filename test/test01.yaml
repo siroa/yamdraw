@@ -1,0 +1,62 @@
+networks:
+# ネットワークにはkindが設定できる(actor: クライアントとなるもの, main: 対象となるシステム, others: 周辺システム)
+  - network:
+      name: WAN
+      kind: main
+      servers:
+        - server:
+            name: Webサーバ
+            mws:
+              - mw:
+                  name: app
+                  id: 111
+                  process:
+                    - {id: 1, name: ユーザー登録}
+                  db:
+                    - {id: 2, name: ユーザー登録}
+              - mw:
+                  name: Oracle
+                  process:
+                    - {id: 3, name: ユーザー登録}
+                  db:
+                    - {id: 4, name: ユーザー登録}
+  - network:
+      name: WAN2
+      kind: main
+      servers:
+        - server:
+            name: Webサーバ
+            mws:
+              - mw:
+                  name: app
+                  process:
+                    - {id: 5, name: ユーザー登録}
+                  db:
+                    - {id: 6, name: ユーザー登録}
+              - mw:
+                  name: Oracle
+                  process:
+                    - {id: 7, name: ユーザー登録}
+                  db:
+                    - {id: 8, name: ユーザー登録}
+  - network:
+      kind: actor
+      servers:
+        - server:
+            name: Webサーバ
+            mws:
+              - mw:
+                  name: app
+                  process:
+                    - {id: 9, name: ユーザー登録1}
+        - server:
+            name: Webサーバ2
+            mws:
+              - mw:
+                  name: Oracle
+                  db:
+                    - {id: 10, name: ユーザー登録4}
+                    - {id: 11, name: ユーザー登録3}
+                    - {id: 12, name: ユーザー登録11}
+                    
+
