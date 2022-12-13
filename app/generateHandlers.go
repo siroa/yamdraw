@@ -16,7 +16,7 @@ type GenerateHandlers struct {
 	Layout service.DefaultLayoutService
 }
 
-func (gh *GenerateHandlers) ReadBirdeye() (*yaml.Overall, error) {
+func (gh *GenerateHandlers) ReadOverall() (*yaml.Overall, error) {
 	b, err := gh.Yaml.Read()
 	if err != nil {
 		return nil, err

@@ -34,7 +34,7 @@ func Run() {
 	yr := yaml.NewYamlRepositoryFile(&file)
 	ys := service.NewYamlService(yr)
 	gh := GenerateHandlers{Yaml: ys}
-	b, err := gh.ReadBirdeye()
+	b, err := gh.ReadOverall()
 	if err != nil {
 		return
 	}
