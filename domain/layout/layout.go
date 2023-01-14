@@ -32,6 +32,10 @@ func (l *Layout) InitGround() {
 	}
 }
 
+func (l *Layout) AllocateLayout(nls []*LayoutNetwork) {
+
+}
+
 func (l *Layout) AllocateNetwork(nl *LayoutNetwork, kind string) {
 	switch kind {
 	case "actor":

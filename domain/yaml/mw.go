@@ -19,3 +19,19 @@ func (m *Mw) ReadMw() (string, string, *[]map[interface{}]interface{}, *[]map[in
 	}
 	return m.ID, m.Name, m.Process, m.Db, nil
 }
+
+func (m *Mw) ReadProcess() (*[]map[interface{}]interface{}, error) {
+	if m == nil {
+		logger.Warn("Can't read mw. Please check yaml syntax...")
+		return nil, errors.New("Unexpected nil pointer")
+	}
+	return m.Process, nil
+}
+
+func (m *Mw) ReadDb() (*[]map[interface{}]interface{}, error) {
+	if m == nil {
+		logger.Warn("Can't read mw. Please check yaml syntax...")
+		return nil, errors.New("Unexpected nil pointer")
+	}
+	return m.Db, nil
+}
