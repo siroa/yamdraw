@@ -116,7 +116,7 @@ func createDB(db *[]map[interface{}]interface{}, lMw *layout.LayoutMw) *layout.L
 			i = strconv.Itoa(num)
 		}
 		n, _ := v["name"].(string)
-		p := layout.CreateLayoutDB(i, n)
+		p := layout.CreateLayoutAccessory(i, n, layout.DBWIDTH, layout.DBHEIGHT)
 		lMw.DB = append(lMw.DB, p)
 	}
 	return lMw
@@ -133,7 +133,7 @@ func createProcess(pr *[]map[interface{}]interface{}, lMw *layout.LayoutMw) *lay
 			i = strconv.Itoa(num)
 		}
 		n, _ := v["name"].(string)
-		p := layout.CreateLayoutProcess(i, n)
+		p := layout.CreateLayoutAccessory(i, n, layout.PROWIDTH, layout.PROHEIGHT)
 		lMw.Process = append(lMw.Process, p)
 	}
 	return lMw

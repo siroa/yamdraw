@@ -7,8 +7,8 @@ type LayoutMw struct {
 	Height    int
 	PositionX int
 	PositionY int
-	DB        []*LayoutDB
-	Process   []*LayoutProcess
+	DB        []*LayoutAccessory
+	Process   []*LayoutAccessory
 }
 
 const (
