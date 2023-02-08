@@ -122,6 +122,21 @@ func (cs *MxCells) NewProcess(id, name, parent string, mg *MxGeometry) *MxCells 
 	return cs
 }
 
+func (cs *MxCells) NewDocument(id, name, parent string, mg *MxGeometry) *MxCells {
+	cs.Count++
+	i := setId(id, cs.Count)
+	mc := MxCell{
+		Id:         i,
+		Value:      name,
+		Style:      "shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;",
+		Vertex:     "1",
+		Parent:     parent,
+		MxGeometry: mg,
+	}
+	cs.Cells = append(cs.Cells, mc)
+	return cs
+}
+
 func (cs *MxCells) NewCommunication(id, name, source, target string, entry, exit int, mg *MxGeometry) *MxCells {
 	cs.Count++
 	i := setId(id, cs.Count)

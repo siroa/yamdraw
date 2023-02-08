@@ -5,11 +5,14 @@ const (
 	DBHEIGHT  int = 50
 	PROWIDTH  int = 100
 	PROHEIGHT int = 50
+	DOCWIDTH  int = 80
+	DOCHEIGHT int = 50
 	MARGIN    int = 20
 )
 
 type LayoutAccessory struct {
 	ID        string
+	Kind      string
 	Name      string
 	Width     int
 	Height    int
@@ -17,20 +20,31 @@ type LayoutAccessory struct {
 	PositionY int
 }
 
-func CreateLayoutAccessory(id, name string, w, h int) *LayoutAccessory {
+func CreateLayoutAccessory(id, name, kind string) *LayoutAccessory {
 	return &LayoutAccessory{
 		ID:        id,
 		Name:      name,
-		Width:     w,
-		Height:    h,
+		Kind:      kind,
+		Width:     0,
+		Height:    0,
 		PositionX: 0,
 		PositionY: 0,
 	}
 }
 
-func (d *LayoutAccessory) SetSize(w, h int) {
-	d.Width = w
-	d.Height = h
+func (d *LayoutAccessory) SetSize() *LayoutAccessory {
+	switch k := d.Kind; {
+	case k == "db":
+		d.Width = DBWIDTH
+		d.Height = DBHEIGHT
+	case k == "process":
+		d.Width = PROWIDTH
+		d.Height = PROHEIGHT
+	case k == "doc":
+		d.Width = DOCWIDTH
+		d.Height = DOCHEIGHT
+	}
+	return d
 }
 
 func (d *LayoutAccessory) SetPosition(x, y int) {

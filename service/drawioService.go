@@ -56,12 +56,23 @@ func setMws(i string, mcells *DefaultDrawioService, lms []*layout.LayoutMw) *Def
 		var ip string
 		mcells, ip = mcells.CreateGroup(i, lm.PositionX, lm.PositionY, lm.Width, lm.Height) // MW Grouping
 		mcells = mcells.CreateMw(lm.ID, lm.Name, ip, lm.Width, lm.Height)
-		for _, v := range lm.DB {
-			mcells = mcells.CreateDB(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
+		for _, v := range lm.Accessories {
+			switch k := v.Kind; {
+			case k == "db":
+				mcells = mcells.CreateDB(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
+			case k == "process":
+				mcells = mcells.CreateProcess(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
+			case k == "doc":
+				mcells = mcells.CreateDocument(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
+			}
+
 		}
-		for _, v := range lm.Process {
-			mcells = mcells.CreateProcess(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
-		}
+		// for _, v := range lm.DB {
+		// 	mcells = mcells.CreateDB(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
+		// }
+		// for _, v := range lm.Process {
+		// 	mcells = mcells.CreateProcess(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
+		// }
 	}
 	return mcells
 }
@@ -93,6 +104,12 @@ func (d *DefaultDrawioService) CreateDB(id, name, p string, x, y, w, h int) *Def
 func (d *DefaultDrawioService) CreateProcess(id, name, p string, x, y, w, h int) *DefaultDrawioService {
 	geo := drawio.NewGeometry().SetPosition(x, y).SetSize(w, h)
 	d.Cs = d.Cs.NewProcess(id, name, p, geo)
+	return d
+}
+
+func (d *DefaultDrawioService) CreateDocument(id, name, p string, x, y, w, h int) *DefaultDrawioService {
+	geo := drawio.NewGeometry().SetPosition(x, y).SetSize(w, h)
+	d.Cs = d.Cs.NewDocument(id, name, p, geo)
 	return d
 }
 

@@ -35,10 +35,12 @@ func (d *LayoutNetwork) CalcSize() {
 		return
 	}
 	sumWidth := 0
+	comparedWidth := 0
 	sumHeight := 0
 	for _, v := range d.Servers {
-		if sumWidth < v.Width {
-			sumWidth = v.Width + NETMARGIN
+		comparedWidth = v.Width + NETMARGIN
+		if sumWidth < comparedWidth {
+			sumWidth = comparedWidth
 		}
 		sumHeight += v.Height + NETMARGIN*2
 	}

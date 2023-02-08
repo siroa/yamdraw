@@ -1,22 +1,22 @@
 package layout
 
-type LayoutMw struct {
-	ID        string
-	Name      string
-	Width     int
-	Height    int
-	PositionX int
-	PositionY int
-	DB        []*LayoutAccessory
-	Process   []*LayoutAccessory
-}
-
 const (
 	MWMARGIN      = 40
 	MWHEIGHTSCALE = 1.5
 	DEFAULTWIDHT  = 80
 	DEFAULTHEIGHT = 100
 )
+
+type LayoutMw struct {
+	ID          string
+	Name        string
+	Width       int
+	Height      int
+	PositionX   int
+	PositionY   int
+	Accessories []*LayoutAccessory
+	KindNum     map[string]int
+}
 
 func CreateLayoutMw(id, name string) *LayoutMw {
 	return &LayoutMw{
@@ -26,61 +26,92 @@ func CreateLayoutMw(id, name string) *LayoutMw {
 		Height:    0,
 		PositionX: 0,
 		PositionY: 0,
+		KindNum:   make(map[string]int),
 	}
 }
 
 // Calculate and set Mw width
 func (d *LayoutMw) CalcWidth() {
-	dbNum := len(d.DB)
-	ProcessNum := len(d.Process)
-	if len(d.DB) == 0 && len(d.Process) == 0 {
-		d.Width = DBWIDTH + MARGIN
-	} else if dbNum > ProcessNum {
-		d.Width = dbNum * (DBHEIGHT + MARGIN)
-	} else {
-		d.Width = ProcessNum * (PROWIDTH + MARGIN)
+	if len(d.Accessories) == 0 {
+		d.Width = DEFAULTWIDHT
+		return
+	}
+	longestWidth := 0
+	currentKind := d.Accessories[0].Kind
+	for _, v := range d.Accessories {
+		if currentKind != v.Kind {
+			currentKind = v.Kind
+			if longestWidth > d.Width {
+				d.Width = longestWidth
+			}
+			longestWidth = 0
+		}
+		longestWidth += v.Width + MWMARGIN
+	}
+	if longestWidth > d.Width {
+		d.Width = longestWidth
+	}
+	if currentKind == d.Accessories[0].Kind {
+		d.Width = longestWidth
 	}
 }
 
 // Calculate and set the height of Mw
 func (d *LayoutMw) CalcHeight() {
-	if len(d.DB) == 0 || len(d.Process) == 0 {
-		d.Height = int(MWHEIGHTSCALE * float64(DBHEIGHT+20))
-	} else {
-		sumHeight := DBHEIGHT + PROHEIGHT + MARGIN
-		d.Height = int(MWHEIGHTSCALE * float64(sumHeight))
+	if len(d.Accessories) == 0 {
+		d.Height = DEFAULTHEIGHT
+		return
+	}
+	currentKind := d.Accessories[0].Kind
+	sumHeight := d.Accessories[0].Height + MARGIN
+	for _, v := range d.Accessories {
+		if currentKind != v.Kind {
+			currentKind = v.Kind
+			sumHeight += v.Height + MARGIN
+			d.Height = int(MWHEIGHTSCALE*float64(sumHeight)) + 20
+		}
+	}
+	if currentKind == d.Accessories[0].Kind {
+		d.Height = int(MWHEIGHTSCALE*float64(d.Accessories[0].Height)) + 20
 	}
 }
 
-func (d *LayoutMw) CalcDBPostion() {
-	dbnum := len(d.DB)
-	processNum := len(d.Process)
-	if dbnum == 0 {
+func (d *LayoutMw) countAccessories() {
+	if len(d.Accessories) == 0 {
 		return
 	}
-	y := d.Height - (20 + DBHEIGHT + PROHEIGHT)
-	if processNum == 0 {
-		y = d.Height - (DBHEIGHT + 10)
+	count := 0
+	currentKind := d.Accessories[0].Kind
+	for _, v := range d.Accessories {
+		if currentKind != v.Kind {
+			d.KindNum[currentKind] = count
+			count = 0
+			currentKind = v.Kind
+		}
+		count += 1
 	}
-	padding := (d.Width - DBWIDTH*dbnum) / (dbnum + 1)
-	posX := padding
-	for _, v := range d.DB {
-		v.SetPosition(posX, y)
-		posX += DBWIDTH + padding
-	}
+	d.KindNum[currentKind] = count
 }
 
-func (d *LayoutMw) CalcProcessPostion() {
-	processNum := len(d.Process)
-	if processNum == 0 {
+func (d *LayoutMw) CalcAccessoriesPosion() {
+	if len(d.Accessories) == 0 {
 		return
 	}
-	y := d.Height - (10 + PROHEIGHT)
-	padding := (d.Width - PROWIDTH*processNum) / (processNum + 1)
-	posX := padding
-	for _, v := range d.Process {
-		v.SetPosition(posX, y)
-		posX += PROWIDTH + padding
+	d.countAccessories()
+	currentKind := d.Accessories[0].Kind
+	y := d.Height - (d.Accessories[0].Height + 10)
+
+	padding := (d.Width - d.Accessories[0].Width*d.KindNum[currentKind]) / (d.KindNum[currentKind] + 1)
+	x := padding
+	for _, v := range d.Accessories {
+		if currentKind != v.Kind {
+			currentKind = v.Kind
+			y -= v.Height + 10
+			padding = (d.Width - v.Width*d.KindNum[currentKind]) / (d.KindNum[currentKind] + 1)
+			x = padding
+		}
+		v.SetPosition(x, y)
+		x += v.Width + padding
 	}
 }
 
