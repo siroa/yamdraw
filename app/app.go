@@ -39,6 +39,8 @@ func Run() {
 		return
 	}
 	nls, pl := gh.LocLayout(b)
+	// Todo: 全体像の把握
+
 	f := gh.CreateDrawioFile(nls, pl)
 	err = gh.WriteDrawioFile(f, fn)
 	if err != nil {

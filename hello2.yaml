@@ -1,0 +1,86 @@
+networks:
+# MwsやServersがなくても描画できるようにする
+# ネットワークにはkindが設定できる(actor: クライアントとなるもの, main: 対象となるシステム, others: 周辺システム)
+  - network:
+      name: WAN
+      kind: main
+      servers:
+        - server:
+            name: Webサーバ2
+        - server:
+            name: Webサーバ
+            # mws:
+            #   - mw:
+            #       name: app
+            #       id: 111
+            #       process:
+            #         - {name: ユーザー登録}
+
+            #       db:
+            #         - {id: 2, name: ユーザー登録}
+            #   - mw:
+            #       name: Oracle
+            #       process:
+            #         - {id: 3, name: ユーザー登録}
+            #       db:
+            #         - {id: 4, name: ユーザー登録}
+  - network:
+      name: WAN2
+      kind: main
+      servers:
+        - server:
+            name: Webサーバ
+            mws:
+              - mw:
+                  name: app
+              - mw:
+                  name: Oracle
+                  process:
+                    - {id: 7, name: ユーザー登録}
+                  db:
+                    - {id: 8, name: ユーザー登録}
+  - network:
+      name: お客様先ネットワーク
+      kind: actor
+      servers:
+        - server:
+            name: Webサーバ
+            mws:
+              - mw:
+                  name: app
+                  process:
+                    - {id: 9, name: ユーザー登録1}
+                    - {id: 15, name: ユーザー登録1}
+        - server:
+            name: Webサーバ2
+            mws:
+              - mw:
+                  name: Oracle
+                  db:
+                    - {id: 10, name: ユーザー登録4}
+                    - {id: 11, name: ユーザー登録3}
+                    - {id: 12, name: ユーザー登録11}
+  - network:
+      name: keycloak
+      kind: others
+      servers:
+        - server:
+            name: Webサーバ
+            mws:
+              - mw:
+                  name: app
+                  process:
+                    - {id: 94, name: ユーザー登録1}
+                    - {id: 154, name: ユーザー登録1}
+        - server:
+            name: Webサーバ2
+            mws:
+              - mw:
+                  name: Oracle
+                  db:
+                    - {id: ユーザー登録4, name: ユーザー登録4}
+                    - {id: ユーザー登録3, name: ユーザー登録3}
+                    - {id: ユーザー登録11, name: ユーザー登録11}
+procedure:
+  b: 9->10.>94.>ユーザー登録3
+

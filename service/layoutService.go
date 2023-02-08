@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"generate/domain/layout"
 	"generate/domain/yaml"
 	"generate/utils/logger"
@@ -89,52 +90,39 @@ func CreateServerLayout(c *[]yaml.Servers) []*layout.LayoutServer {
 func CreateMws(mws *[]yaml.Mws) []*layout.LayoutMw {
 	lMws := []*layout.LayoutMw{}
 	for _, v := range *mws {
-		id, name, process, db, err := v.Mw.ReadMw()
+		id, name, accessories, err := v.Mw.ReadMw()
+		fmt.Println(accessories)
 		if err != nil {
 			continue
 		}
 		lMw := layout.CreateLayoutMw(id, name)
-		lMw = createDB(db, lMw)
-		lMw = createProcess(process, lMw)
+		lMw = createAccessories(accessories, lMw)
 		lMw.CalcWidth()
 		lMw.CalcHeight()
-		lMw.CalcDBPostion()
-		lMw.CalcProcessPostion()
+		lMw.CalcAccessoriesPosion()
 		lMws = append(lMws, lMw)
 	}
 	return lMws
 }
 
-func createDB(db *[]map[interface{}]interface{}, lMw *layout.LayoutMw) *layout.LayoutMw {
-	if db == nil {
+func createAccessories(acs map[string]*[]map[interface{}]interface{}, lMw *layout.LayoutMw) *layout.LayoutMw {
+	if len(acs) == 0 {
 		return lMw
 	}
-	for _, v := range *db {
-		i, ok := v["id"].(string)
-		if ok == false {
-			num, _ := v["id"].(int)
-			i = strconv.Itoa(num)
+	for k, v := range acs {
+		if v == nil {
+			continue
 		}
-		n, _ := v["name"].(string)
-		p := layout.CreateLayoutDB(i, n)
-		lMw.DB = append(lMw.DB, p)
-	}
-	return lMw
-}
-
-func createProcess(pr *[]map[interface{}]interface{}, lMw *layout.LayoutMw) *layout.LayoutMw {
-	if pr == nil {
-		return lMw
-	}
-	for _, v := range *pr {
-		i, ok := v["id"].(string)
-		if ok == false {
-			num, _ := v["id"].(int)
-			i = strconv.Itoa(num)
+		for _, v := range *v {
+			i, ok := v["id"].(string)
+			if ok == false {
+				num, _ := v["id"].(int)
+				i = strconv.Itoa(num)
+			}
+			n, _ := v["name"].(string)
+			a := layout.CreateLayoutAccessory(i, n, k).SetSize()
+			lMw.Accessories = append(lMw.Accessories, a)
 		}
-		n, _ := v["name"].(string)
-		p := layout.CreateLayoutProcess(i, n)
-		lMw.Process = append(lMw.Process, p)
 	}
 	return lMw
 }

@@ -10,12 +10,14 @@ type Mw struct {
 	Name    string                         `yaml:"name,omitempty"`
 	Process *[]map[interface{}]interface{} `yaml:"process,omitempty"`
 	Db      *[]map[interface{}]interface{} `yaml:"db,omitempty"`
+	Doc     *[]map[interface{}]interface{} `yaml:"document,omitempty"`
 }
 
-func (m *Mw) ReadMw() (string, string, *[]map[interface{}]interface{}, *[]map[interface{}]interface{}, error) {
+func (m *Mw) ReadMw() (string, string, map[string]*[]map[interface{}]interface{}, error) {
 	if m == nil {
 		logger.Warn("Can't read mw. Please check yaml syntax...")
-		return "", "", nil, nil, errors.New("Unexpected nil pointer")
+		return "", "", nil, errors.New("Unexpected nil pointer")
 	}
-	return m.ID, m.Name, m.Process, m.Db, nil
+	accessories := map[string]*[]map[interface{}]interface{}{"db": m.Db, "process": m.Process, "doc": m.Doc}
+	return m.ID, m.Name, accessories, nil
 }

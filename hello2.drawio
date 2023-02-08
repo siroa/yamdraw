@@ -1,0 +1,157 @@
+<mxfile host="65bd71144e">
+  <diagram id="DzRFVIfGvD17ysObrIGW" name="Page-1">
+    <mxGraphModel dx="439" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="Generate0"></mxCell>
+        <mxCell id="Generate1" parent="Generate0"></mxCell>
+        <mxCell id="Generate2" style="group" connectable="0" vertex="1" parent="Generate1">
+          <mxGeometry x="50" y="50" width="360" height="364" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate3" value="お客様先ネットワーク" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#B3B3B3;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate2">
+          <mxGeometry width="360" height="364" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate4" style="group" connectable="0" vertex="1" parent="Generate2">
+          <mxGeometry x="10" y="212" width="320" height="142" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate5" value="Webサーバ" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#f5f5f5;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate4">
+          <mxGeometry width="320" height="142" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate6" style="group" connectable="0" vertex="1" parent="Generate4">
+          <mxGeometry x="20" y="37" width="280" height="95" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate7" value="app" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66B2FF;fontColor=#000000;strokeColor=#001DBC;align=center;verticalAlign=top;" vertex="1" parent="Generate6">
+          <mxGeometry width="280" height="95" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="9" value="ユーザー登録1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate6">
+          <mxGeometry x="26" y="35" width="100" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="15" value="ユーザー登録1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate6">
+          <mxGeometry x="152" y="35" width="100" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate10" style="group" connectable="0" vertex="1" parent="Generate2">
+          <mxGeometry x="10" y="60" width="340" height="142" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate11" value="Webサーバ2" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#f5f5f5;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate10">
+          <mxGeometry width="340" height="142" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate12" style="group" connectable="0" vertex="1" parent="Generate10">
+          <mxGeometry x="20" y="37" width="300" height="95" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate13" value="Oracle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66B2FF;fontColor=#000000;strokeColor=#001DBC;align=center;verticalAlign=top;" vertex="1" parent="Generate12">
+          <mxGeometry width="300" height="95" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="10" value="ユーザー登録4" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate12">
+          <mxGeometry x="30" y="35" width="60" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="11" value="ユーザー登録3" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate12">
+          <mxGeometry x="120" y="35" width="60" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="12" value="ユーザー登録11" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate12">
+          <mxGeometry x="210" y="35" width="60" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate17" style="group" connectable="0" vertex="1" parent="Generate1">
+          <mxGeometry x="460" y="50" width="120" height="320" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate18" value="WAN" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#B3B3B3;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate17">
+          <mxGeometry width="120" height="320" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate19" style="group" connectable="0" vertex="1" parent="Generate17">
+          <mxGeometry x="10" y="190" width="100" height="120" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate20" value="Webサーバ2" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#f5f5f5;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate19">
+          <mxGeometry width="100" height="120" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate21" style="group" connectable="0" vertex="1" parent="Generate17">
+          <mxGeometry x="10" y="60" width="100" height="120" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate22" value="Webサーバ" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#f5f5f5;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate21">
+          <mxGeometry width="100" height="120" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate23" style="group" connectable="0" vertex="1" parent="Generate1">
+          <mxGeometry x="460" y="390" width="320" height="385" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate24" value="WAN2" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#B3B3B3;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate23">
+          <mxGeometry width="320" height="385" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate25" style="group" connectable="0" vertex="1" parent="Generate23">
+          <mxGeometry x="10" y="30" width="300" height="345" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate26" value="Webサーバ" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#f5f5f5;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate25">
+          <mxGeometry width="300" height="345" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate27" style="group" connectable="0" vertex="1" parent="Generate25">
+          <mxGeometry x="20" y="235" width="80" height="100" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate28" value="app" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66B2FF;fontColor=#000000;strokeColor=#001DBC;align=center;verticalAlign=top;" vertex="1" parent="Generate27">
+          <mxGeometry width="80" height="100" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate29" style="group" connectable="0" vertex="1" parent="Generate25">
+          <mxGeometry x="120" y="105" width="140" height="230" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate30" value="Oracle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66B2FF;fontColor=#000000;strokeColor=#001DBC;align=center;verticalAlign=top;" vertex="1" parent="Generate29">
+          <mxGeometry width="140" height="230" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="8" value="ユーザー登録" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate29">
+          <mxGeometry x="40" y="170" width="60" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="7" value="ユーザー登録" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate29">
+          <mxGeometry x="20" y="110" width="100" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate33" style="group" connectable="0" vertex="1" parent="Generate1">
+          <mxGeometry x="830" y="50" width="360" height="364" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate34" value="keycloak" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#B3B3B3;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate33">
+          <mxGeometry width="360" height="364" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate35" style="group" connectable="0" vertex="1" parent="Generate33">
+          <mxGeometry x="10" y="212" width="320" height="142" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate36" value="Webサーバ" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#f5f5f5;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate35">
+          <mxGeometry width="320" height="142" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate37" style="group" connectable="0" vertex="1" parent="Generate35">
+          <mxGeometry x="20" y="37" width="280" height="95" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate38" value="app" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66B2FF;fontColor=#000000;strokeColor=#001DBC;align=center;verticalAlign=top;" vertex="1" parent="Generate37">
+          <mxGeometry width="280" height="95" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="94" value="ユーザー登録1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate37">
+          <mxGeometry x="26" y="35" width="100" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="154" value="ユーザー登録1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate37">
+          <mxGeometry x="152" y="35" width="100" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate41" style="group" connectable="0" vertex="1" parent="Generate33">
+          <mxGeometry x="10" y="60" width="340" height="142" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate42" value="Webサーバ2" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;strokeWidth=1;fillColor=#f5f5f5;gradientColor=none;align=left;fontColor=#000000;verticalAlign=top;" vertex="1" parent="Generate41">
+          <mxGeometry width="340" height="142" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate43" style="group" connectable="0" vertex="1" parent="Generate41">
+          <mxGeometry x="20" y="37" width="300" height="95" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate44" value="Oracle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66B2FF;fontColor=#000000;strokeColor=#001DBC;align=center;verticalAlign=top;" vertex="1" parent="Generate43">
+          <mxGeometry width="300" height="95" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="ユーザー登録4" value="ユーザー登録4" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate43">
+          <mxGeometry x="30" y="35" width="60" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="ユーザー登録3" value="ユーザー登録3" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate43">
+          <mxGeometry x="120" y="35" width="60" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="ユーザー登録11" value="ユーザー登録11" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fontColor=#333333;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="Generate43">
+          <mxGeometry x="210" y="35" width="60" height="50" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate48" value="b1" style="endArrow=classic;html=1;strokeColor=#000000;entryDx=0;entryDy=0;entryPerimeter=0;labelBackgroundColor=#FFFF66;fontColor=#000000;entryX=0;entryY=0.5;exitX=0.5;exitY=1;" parent="Generate1" source="9" target="10" edge="1">
+          <mxGeometry width="" height="" relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate49" value="b2" style="endArrow=classic;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;fontColor=#000000;strokeColor=#000000;startArrow=none;startFill=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;endFill=1;labelBackgroundColor=#FFFF66;entryX=0;entryY=0.5;exitX=0.5;exitY=1;" parent="Generate1" source="10" target="94" edge="1">
+          <mxGeometry width="" height="" relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="Generate50" value="b3" style="endArrow=classic;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;fontColor=#000000;strokeColor=#000000;startArrow=none;startFill=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;endFill=1;labelBackgroundColor=#FFFF66;entryX=0;entryY=0.5;exitX=0.5;exitY=1;" parent="Generate1" source="94" target="ユーザー登録3" edge="1">
+          <mxGeometry width="" height="" relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
