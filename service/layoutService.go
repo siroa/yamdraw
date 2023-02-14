@@ -57,7 +57,7 @@ func extractProcedure(r string, p []string) []layout.LayoutProcedure {
 	for i := 0; i < num; i++ {
 		route := r + strconv.Itoa(i+1)
 		// ToDo: entry pointを選ぶようにする
-		lp, err := layout.CreateLayoutProcedure(route, p[n], p[n+2], p[n+1], 3, 2)
+		lp, err := layout.CreateLayoutProcedure(route, p[n], p[n+2], p[n+1], 3, 1)
 		if err != nil {
 			// ToDo: エラーハンドリングを検討する
 			logger.Error("Can't create struct. : " + err.Error())

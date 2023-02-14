@@ -16,11 +16,12 @@ type Layout struct {
 }
 
 type LayoutContents struct {
-	ID        string
-	Width     int
-	Height    int
-	PositionX int
-	PositionY int
+	ID      string
+	Type    string
+	Width   int
+	Height  int
+	AbsPosX int
+	AbsPosY int
 }
 
 // 1 = 10px

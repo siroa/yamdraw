@@ -67,12 +67,6 @@ func setMws(i string, mcells *DefaultDrawioService, lms []*layout.LayoutMw) *Def
 			}
 
 		}
-		// for _, v := range lm.DB {
-		// 	mcells = mcells.CreateDB(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
-		// }
-		// for _, v := range lm.Process {
-		// 	mcells = mcells.CreateProcess(v.ID, v.Name, ip, v.PositionX, v.PositionY, v.Width, v.Height)
-		// }
 	}
 	return mcells
 }
@@ -121,24 +115,23 @@ func (d *DefaultDrawioService) CreateGroup(parent string, x, y, w, h int) (*Defa
 }
 
 // I don't use it now.
-func (d *DefaultDrawioService) CreateCommunication(id, name string) *DefaultDrawioService {
-	sourcePoint := drawio.NewPoint().SetPosition("160", "450").SetKind("sourcePoint")
-	targetPoint := drawio.NewPoint().SetPosition("210", "400").SetKind("targetPoint")
-	mps := []drawio.MxPoint{*sourcePoint, *targetPoint}
-	geo := drawio.NewGeometryArrow(mps)
-	d.Cs = d.Cs.NewCommunication(id, name, "4", "7", 0, 0, geo)
+func (d *DefaultDrawioService) CreateCommunication(id, name, source, target string, entry, exit int) *DefaultDrawioService {
+	point := drawio.NewPoint().SetPosition("0", "0")
+	array := drawio.NewArray().SetMxPoint(point)
+	geo := drawio.NewGeometryArrow(array)
+	d.Cs = d.Cs.NewCommunication(id, name, source, target, entry, exit, geo)
 	return d
 }
 
 // I don't use it now.
-func (d *DefaultDrawioService) CreateReference(id, name string) *DefaultDrawioService {
-	sourcePoint := drawio.NewPoint().SetPosition("70", "710").SetKind("sourcePoint")
-	targetPoint := drawio.NewPoint().SetPosition("140", "600").SetKind("targetPoint")
-	mps := []drawio.MxPoint{*sourcePoint, *targetPoint}
-	geo := drawio.NewGeometryArrow(mps)
-	d.Cs = d.Cs.NewReference(id, name, "7", "4", 0, 0, geo)
-	return d
-}
+// func (d *DefaultDrawioService) CreateReference(id, name string) *DefaultDrawioService {
+// 	sourcePoint := drawio.NewPoint().SetPosition("70", "710").SetKind("sourcePoint")
+// 	targetPoint := drawio.NewPoint().SetPosition("140", "600").SetKind("targetPoint")
+// 	mps := []drawio.MxPoint{*sourcePoint, *targetPoint}
+// 	geo := drawio.NewGeometryArrow(mps)
+// 	d.Cs = d.Cs.NewReference(id, name, "7", "4", 0, 0, geo)
+// 	return d
+// }
 
 // simple communication
 func (d *DefaultDrawioService) CreateSimpleCommnication(id, name, source, target string, entry, exit int) *DefaultDrawioService {

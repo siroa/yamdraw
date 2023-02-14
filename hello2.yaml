@@ -9,21 +9,6 @@ networks:
             name: Webサーバ2
         - server:
             name: Webサーバ
-            # mws:
-            #   - mw:
-            #       name: app
-            #       id: 111
-            #       process:
-            #         - {name: ユーザー登録}
-
-            #       db:
-            #         - {id: 2, name: ユーザー登録}
-            #   - mw:
-            #       name: Oracle
-            #       process:
-            #         - {id: 3, name: ユーザー登録}
-            #       db:
-            #         - {id: 4, name: ユーザー登録}
   - network:
       name: WAN2
       kind: main

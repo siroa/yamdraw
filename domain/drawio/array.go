@@ -10,11 +10,12 @@ type Array struct {
 
 func NewArray() *Array {
 	mg := Array{
-		As: "geometry",
+		As: "point",
 	}
 	return &mg
 }
 
-func (a *Array) SetMxPoint(mp *MxPoint) {
+func (a *Array) SetMxPoint(mp *MxPoint) *Array {
 	a.MxPoint = append(a.MxPoint, mp)
+	return a
 }
