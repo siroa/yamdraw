@@ -68,11 +68,13 @@ func (d *LayoutMw) CalcHeight() {
 		if currentKind != v.Kind {
 			currentKind = v.Kind
 			sumHeight += v.Height + MARGIN
-			d.Height = int(MWHEIGHTSCALE*float64(sumHeight)) + 20
+			//d.Height = int(MWHEIGHTSCALE*float64(sumHeight)) + 20
+			d.Height = 40 + sumHeight
 		}
 	}
 	if currentKind == d.Accessories[0].Kind {
-		d.Height = int(MWHEIGHTSCALE*float64(d.Accessories[0].Height)) + 20
+		//d.Height = int(MWHEIGHTSCALE*float64(d.Accessories[0].Height)) + 20
+		d.Height = 40 + sumHeight
 	}
 }
 
@@ -106,7 +108,7 @@ func (d *LayoutMw) CalcAccessoriesPosion() {
 	for _, v := range d.Accessories {
 		if currentKind != v.Kind {
 			currentKind = v.Kind
-			y -= v.Height + 10
+			y -= v.Height + 20
 			padding = (d.Width - v.Width*d.KindNum[currentKind]) / (d.KindNum[currentKind] + 1)
 			x = padding
 		}

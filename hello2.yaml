@@ -4,6 +4,7 @@ networks:
   - network:
       name: WAN
       kind: main
+      id: hogehgoe
       servers:
         - server:
             name: Webサーバ2
@@ -33,6 +34,7 @@ networks:
             mws:
               - mw:
                   name: app
+                  id: app
               - mw:
                   name: Oracle
                   process:
@@ -61,6 +63,30 @@ networks:
                     - {id: 11, name: ユーザー登録3}
                     - {id: 12, name: ユーザー登録11}
   - network:
+      name: お客様先ネットワーク2
+      kind: actor
+      servers:
+        - server:
+            name: Webサーバ
+            mws:
+              - mw:
+                  name: app
+                  process:
+                    - {id: 99, name: ユーザー登録1}
+                    - {id: 111, name: ユーザー登録2}
+        - server:
+            name: Webサーバ2
+            mws:
+              - mw:
+                  name: Oracle
+                  db:
+                    - {id: 109, name: ユーザー登録4}
+                    - {id: 110, name: ユーザー登録3}
+                    - {id: hogehoge, name: ユーザー登録3}
+                  process:
+                    - {id: 2929, name: ユーザー登録1}
+                    - {id: 4434, name: ユーザー登録2}
+  - network:
       name: keycloak
       kind: others
       servers:
@@ -82,5 +108,6 @@ networks:
                     - {id: ユーザー登録3, name: ユーザー登録3}
                     - {id: ユーザー登録11, name: ユーザー登録11}
 procedure:
-  b: 9->10.>94.>ユーザー登録3
+  #a: 15->app
+  b: 9->15
 

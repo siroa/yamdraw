@@ -1,39 +1,52 @@
 package layout
 
 const (
-	WIDTH  = 1000
-	HEIGHT = 1000
+	WIDTH        = 500
+	HEIGHT       = 500
+	LAYOUTMERGIN = 40
 )
 
 type Layout struct {
-	Ground      [][]int
-	Actor       []*LayoutNetwork
-	Main        []*LayoutNetwork
-	Others      []*LayoutNetwork
-	ActorWidth  int
-	MainWidth   int
-	OthersWidth int
+	Actor          []*LayoutNetwork
+	Main           []*LayoutNetwork
+	Others         []*LayoutNetwork
+	ActorWidth     int
+	MainWidth      int
+	OthersWidth    int
+	LayoutContents []LayoutContent
 }
 
-type LayoutContents struct {
+type LayoutContent struct {
 	ID        string
+	Type      int
 	Width     int
 	Height    int
 	PositionX int
 	PositionY int
 }
 
-// 1 = 10px
-// initial value is 0
-func (l *Layout) InitGround() {
-	l.Ground = make([][]int, WIDTH)
-	for i := 0; i < WIDTH; i++ {
-		l.Ground[i] = make([]int, HEIGHT)
+type BackGround struct {
+	Field [][]int
+}
+
+func NewLayoutContent(id string, t, w, h, x, y int) LayoutContent {
+	return LayoutContent{
+		ID:        id,
+		Type:      t,
+		Width:     w,
+		Height:    h,
+		PositionX: x,
+		PositionY: y,
 	}
 }
 
-func (l *Layout) AllocateLayout(nls []*LayoutNetwork) {
-
+// 1 = 10px
+// initial value is 0
+func (b *BackGround) InitGround() {
+	b.Field = make([][]int, WIDTH)
+	for i := 0; i < WIDTH; i++ {
+		b.Field[i] = make([]int, HEIGHT)
+	}
 }
 
 func (l *Layout) AllocateNetwork(nl *LayoutNetwork, kind string) {
@@ -56,8 +69,8 @@ func (l *Layout) CalcNetworksPostion() {
 }
 
 func (l *Layout) calcActorPostion() {
-	posX := 50
-	posY := 50
+	posX := LAYOUTMERGIN
+	posY := LAYOUTMERGIN
 	for _, v := range l.Actor {
 		v.SetPosition(posX, posY)
 		posY += v.Height + NETMARGIN
@@ -65,8 +78,8 @@ func (l *Layout) calcActorPostion() {
 }
 
 func (l *Layout) calcMainPostion() {
-	posX := 50 + l.ActorWidth + 50
-	posY := 50
+	posX := LAYOUTMERGIN + l.ActorWidth + LAYOUTMERGIN
+	posY := LAYOUTMERGIN
 	for _, v := range l.Main {
 		v.SetPosition(posX, posY)
 		posY += v.Height + NETMARGIN
@@ -74,8 +87,8 @@ func (l *Layout) calcMainPostion() {
 }
 
 func (l *Layout) calcOthersPostion() {
-	posX := 50 + l.ActorWidth + 50 + l.MainWidth + 50
-	posY := 50
+	posX := 3*LAYOUTMERGIN + l.ActorWidth + l.MainWidth
+	posY := LAYOUTMERGIN
 	for _, v := range l.Others {
 		v.SetPosition(posX, posY)
 		posY += v.Height + NETMARGIN

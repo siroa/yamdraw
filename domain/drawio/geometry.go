@@ -13,7 +13,8 @@ type MxGeometry struct {
 	Height   string   `xml:"height,attr"`
 	Relative string   `xml:"relative,attr,omitempty"`
 	As       string   `xml:"as,attr"`
-	MxPoint  *[]MxPoint
+	Array    *Array
+	// MxPoint  *[]MxPoint
 }
 
 func NewGeometry() *MxGeometry {
@@ -35,15 +36,28 @@ func NewGeometrySimpleArrow() *MxGeometry {
 	return &mg
 }
 
-func NewGeometryArrow(mp []MxPoint) *MxGeometry {
-	mg := MxGeometry{
-		Width:    "50",
-		Height:   "50",
+// func NewGeometryArrow(mp []MxPoint) *MxGeometry {
+// 	mg := MxGeometry{
+// 		Width:    "50",
+// 		Height:   "50",
+// 		Relative: "1",
+// 		As:       "geometry",
+// 		MxPoint:  &mp,
+// 	}
+// 	return &mg
+// }
+
+func NewGeometryArrow() *MxGeometry {
+	return &MxGeometry{
 		Relative: "1",
 		As:       "geometry",
-		MxPoint:  &mp,
+		Array:    &Array{},
 	}
-	return &mg
+}
+
+func (g *MxGeometry) SetArray(array *Array) *MxGeometry {
+	g.Array = array
+	return g
 }
 
 func (g *MxGeometry) SetPosition(x, y int) *MxGeometry {

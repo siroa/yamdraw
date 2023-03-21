@@ -1,7 +1,6 @@
 package service
 
 import (
-	"fmt"
 	"generate/domain/layout"
 	"generate/domain/yaml"
 	"generate/utils/logger"
@@ -91,7 +90,6 @@ func CreateMws(mws *[]yaml.Mws) []*layout.LayoutMw {
 	lMws := []*layout.LayoutMw{}
 	for _, v := range *mws {
 		id, name, accessories, err := v.Mw.ReadMw()
-		fmt.Println(accessories)
 		if err != nil {
 			continue
 		}
@@ -119,6 +117,7 @@ func createAccessories(acs map[string]*[]map[interface{}]interface{}, lMw *layou
 				num, _ := v["id"].(int)
 				i = strconv.Itoa(num)
 			}
+			// ToDo: need error handling
 			n, _ := v["name"].(string)
 			a := layout.CreateLayoutAccessory(i, n, k).SetSize()
 			lMw.Accessories = append(lMw.Accessories, a)

@@ -10,7 +10,7 @@ type Array struct {
 
 func NewArray() *Array {
 	mg := Array{
-		As: "geometry",
+		As: "points",
 	}
 	return &mg
 }

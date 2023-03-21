@@ -17,6 +17,7 @@ type MxGraphModel struct {
 	PageScale  string   `xml:"pageScale,attr"`
 	PageWidth  string   `xml:"pageWidth,attr"`
 	PageHeight string   `xml:"pageHeight,attr"`
+	BackGround string   `xml:"background,attr"`
 	Math       string   `xml:"math,attr"`
 	Shadow     string   `xml:"shadow,attr"`
 	Root       Root
@@ -37,6 +38,7 @@ func NewGraphModel(r Root) *MxGraphModel {
 		PageScale:  "1",
 		PageWidth:  "827",
 		PageHeight: "1169",
+		BackGround: "#ffffff",
 		Math:       "0",
 		Shadow:     "0",
 		Root:       r,

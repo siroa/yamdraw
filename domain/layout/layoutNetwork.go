@@ -12,7 +12,7 @@ type LayoutNetwork struct {
 }
 
 const (
-	NETMARGIN = 20
+	NETMARGIN = 40
 	NETWIDTH  = 200
 	NETHEIGHT = 250
 )
@@ -42,7 +42,7 @@ func (d *LayoutNetwork) CalcSize() {
 		if sumWidth < comparedWidth {
 			sumWidth = comparedWidth
 		}
-		sumHeight += v.Height + NETMARGIN*2
+		sumHeight += v.Height + NETMARGIN
 	}
 	d.Width = sumWidth
 	d.Height = sumHeight
